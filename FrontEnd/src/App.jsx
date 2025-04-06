@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import Post from "./components/Post";
 
-const urlBaseServer = "http://localhost:3000";
+const urlBaseServer = import.meta.env.VITE_URL_BACKEND;
 
 function App() {
   const [titulo, setTitulo] = useState("");
