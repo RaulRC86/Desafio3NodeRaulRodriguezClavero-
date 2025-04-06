@@ -7,7 +7,7 @@ const urlBaseServer = import.meta.env.VITE_URL_BACKEND;
 
 function App() {
   const [titulo, setTitulo] = useState("");
-  const [imgSrc, setImgSRC] = useState("");
+  const [imgSRC, setImgSRC] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [posts, setPosts] = useState([]);
 
@@ -17,7 +17,7 @@ function App() {
   };
 
   const agregarPost = async () => {
-    const post = { titulo, url: imgSrc, descripcion };
+    const post = { titulo, url: imgSRC, descripcion };
     await axios.post(urlBaseServer + "/posts", post);
     getPosts();
   };
