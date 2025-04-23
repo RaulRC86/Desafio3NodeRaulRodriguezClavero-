@@ -1,12 +1,14 @@
 import { db } from "../db/database.js";
 
+
 export const agregarPostsController = async (req, res) => {
   try {
-    const { titulo, imgSRC, descripcion, likes } = req.body;
-const img = imgSRC;
-const likesValue = likes || 0; 
+    const { titulo, img, descripcion, likes } = req.body;
 
-    const query ="INSERT INTO posts (titulo, img, descripcion, likes) VALUES ($1, $2, $3, $4)";
+const likesValue = Number(likes || 0); 
+console.log(typeof likesValue); 
+
+    const query ="INSERT INTO posts (titulo, img, descripcion, likes) VALUES ($1, $2, $3, $4) RETURNING *";
     const values = [titulo, img, descripcion, likesValue];
 
     const result = await db.query(query, values);

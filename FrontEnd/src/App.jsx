@@ -7,7 +7,7 @@ const urlBaseServer = import.meta.env.VITE_URL_BACKEND;
 
 function App() {
   const [titulo, setTitulo] = useState("");
-  const [imgSRC, setImgSRC] = useState("");
+  const [img, setImg] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [posts, setPosts] = useState([]);
 
@@ -17,7 +17,7 @@ function App() {
   };
 
   const agregarPost = async () => {
-    const post = { titulo, url: imgSRC, descripcion };
+    const post = { titulo, img, descripcion };
     await axios.post(urlBaseServer + "/posts", post);
     getPosts();
   };
@@ -45,7 +45,7 @@ function App() {
         <div className="col-12 col-sm-4">
           <Form
             setTitulo={setTitulo}
-            setImgSRC={setImgSRC}
+            setImgSRC={setImg}
             setDescripcion={setDescripcion}
             agregarPost={agregarPost}
           />
